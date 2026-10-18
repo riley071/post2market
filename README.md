@@ -173,7 +173,7 @@ npm run preview
 
 Deploy the contents of `dist/` to a static hosting service. Because the app uses `BrowserRouter`, configure the host to serve `index.html` for application routes such as `/products` and `/gallery` when no static file matches.
 
-Native sharing and clipboard features depend on browser support and generally require HTTPS or localhost. If native sharing is unavailable, use poster download and manual sharing. Remote images and fonts can require internet access; the app has no service worker for guaranteed offline loading.
+Native sharing and clipboard features depend on browser support and generally require HTTPS or localhost. If native sharing is unavailable, use poster download and manual sharing. Remote images and fonts can require internet access; the production build caches the app shell and bundled assets for offline loading after the first successful online visit. External resources are not cached.
 
 ## Troubleshooting
 
@@ -182,3 +182,21 @@ Native sharing and clipboard features depend on browser support and generally re
 - **Refreshing a deployed route returns 404:** configure the static host's fallback to `index.html`.
 - **Saved content is missing:** use the same browser, profile, and site origin where it was created. Local data is not shared across ports or domains.
 - **Saving fails after adding many images:** browser storage is limited. Remove unneeded products or posters to reduce storage use.
+
+## Install on your phone (PWA)
+
+The production build includes an app manifest, home-screen icons, and a service worker. Once loaded online and cached, the interface and bundled assets can reopen offline, including direct routes. Sharing through WhatsApp and loading external images/fonts still require internet access. Data stays on each device; installing the app does not sync your laptop's data to your phone.
+
+1. Run `npm run build` and deploy `dist/` to an HTTPS host with the route fallback described above.
+2. Open that HTTPS address on your phone and let the first load finish.
+3. **Android (Chrome):** open the browser menu and choose **Install app** or **Add to Home screen**.
+4. **iPhone (Safari):** tap **Share**, then **Add to Home Screen** (enable **Open as Web App** if offered).
+5. Launch Post2Market from its home-screen icon. To check offline support, close it, enable airplane mode, then reopen it after the initial online load.
+
+For a desktop offline check, run `npm run build`, then `npm run preview`, open the printed localhost URL, and wait for the service worker to activate before testing offline in browser developer tools. Service worker registration is disabled during `npm run dev` to keep development changes fresh.
+
+To check the mobile layout over the same Wi-Fi, run `npm run dev -- --host 0.0.0.0` and open `http://<your-computer-LAN-IP>:5173` on your phone. Allow access through the firewall if needed. This HTTP LAN address is for layout testing; full PWA installation and service workers require HTTPS on the phone. Use an HTTPS deployment for installation testing.
+
+New builds download in the background. Close all Post2Market windows/tabs and reopen to activate a waiting update. The worker only caches this app's build files, does not cache API responses, and removes its older build caches when an update activates. Configure hosting to revalidate `/sw.js` (for example, `Cache-Control: no-cache`) and serve it as JavaScript, rather than routing it to `index.html`.
+
+PWA files: `public/manifest.webmanifest`, `public/icons/`, registration in `src/main.jsx`, and the build-generated `dist/sw.js` produced by `vite.config.js`. No additional npm packages are required.
