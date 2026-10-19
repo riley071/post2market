@@ -1,4 +1,4 @@
-﻿# Post2Market
+# Post2Market
 
 Post2Market is a mobile-friendly React web app for small businesses and informal sellers. It brings product management, poster design, captions, and social sharing into one place.
 
@@ -96,6 +96,7 @@ The versions below are the declared ranges in `package.json`; `package-lock.json
 | --- | --- | --- |
 | `react` | `^19.2.4` | Components, hooks, and application state. |
 | `react-dom` | `^19.2.4` | Render React into the browser DOM. |
+| `lucide-react` | `^1.59.0` | Consistent outline icons for the dashboard and navigation. |
 | `react-router-dom` | `^7.13.1` | Client-side routing and navigation. |
 | `@supabase/supabase-js` | `^2.99.2` | Installed Supabase SDK; currently unused by the app. |
 

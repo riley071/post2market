@@ -1302,3 +1302,76 @@ p {
     padding-inline: 6px;
   }
 }
+
+/* ---------- Seller dashboard ---------- */
+.dashboard {
+  padding: calc(24px + env(safe-area-inset-top)) 20px calc(112px + env(safe-area-inset-bottom));
+  animation: none;
+}
+.dashboard svg { width: 24px; height: 24px; stroke-width: 1.75; flex-shrink: 0; }
+.dashboard-header { padding-top: 0; margin-bottom: 22px; gap: 10px; }
+.dashboard-heading { min-width: 0; }
+.dashboard-greeting { color: var(--muted); font-size: 13px; margin-bottom: 5px; }
+.dashboard .brand { font-size: 23px; line-height: 1.2; }
+.dashboard-plan { display: inline-flex; align-items: center; gap: 6px; flex-shrink: 0; font-size: 11px; font-weight: 600; color: var(--green); border: 1px solid #d8e4da; background: #edf3ec; padding: 7px 10px; border-radius: 999px; }
+.dashboard-plan > span { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.dashboard-plan.is-premium { color: #7a5c00; background: #fff6d8; border-color: #e6d8a3; }
+.dashboard-hero { padding: 23px 20px 20px; border-radius: 20px; background: #1f2923; color: #fffaf3; box-shadow: 0 7px 18px #1a161214; }
+.hero-kicker { display: flex; gap: 8px; align-items: center; color: #d6c3a7; font-size: 9px; font-weight: 600; letter-spacing: 0.13em; margin-bottom: 15px; }
+.dashboard-hero h1 { font-size: 29px; line-height: 1.16; letter-spacing: -0.045em; }
+.dashboard-hero h1 > span { display: block; color: #f3bb8d; }
+.dashboard-hero p { margin-top: 12px; font-size: 13px; line-height: 1.6; color: #d8d8cd; }
+.dashboard-hero-actions { display: grid; grid-template-columns: 1fr 1.12fr; gap: 10px; margin-top: 21px; }
+.dashboard-hero-actions .btn { min-height: 46px; border-radius: 13px; font-size: 13px; padding: 10px 8px; gap: 7px; }
+.dashboard-hero-actions .hero-secondary { border: 1px solid #ffffff40; background: #ffffff09; color: #fffaf3; }
+.dashboard-stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+.dashboard-stat { text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 14px; box-shadow: 0 3px 9px #1a161204; }
+.stat-heading { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: var(--muted); }
+.stat-heading > svg:first-child { color: var(--green); }
+.stat-heading > svg:last-child { width: 16px; height: 16px; margin-left: auto; color: #a89b8b; }
+.dashboard-stat strong { display: block; margin-top: 10px; font-family: var(--display); font-size: 30px; line-height: 1; letter-spacing: -0.05em; }
+.stat-caption { display: block; font-size: 11px; color: var(--muted); margin-top: 6px; }
+.dashboard-onboarding { margin-top: 20px; font-size: 13px; }
+.dashboard-onboarding .step { font-size: 12px; }
+.dashboard-onboarding .step-dot svg { width: 14px; height: 14px; }
+.dashboard-section { margin-top: 26px; }
+.dashboard-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 13px; }
+.dashboard-section-head h2 { font-size: 19px; letter-spacing: -0.04em; }
+.dashboard-section-head > span { font-size: 10px; color: var(--muted); }
+.dashboard-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.dashboard-action { text-decoration: none; min-width: 0; border: 1px solid var(--line); border-radius: 20px; background: var(--card); padding: 15px; display: flex; flex-direction: column; align-items: flex-start; box-shadow: 0 3px 9px #1a161204; }
+.action-icon { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 12px; background: #f2e8da; color: #95613b; margin-bottom: 11px; }
+.dashboard-action:nth-child(2n) .action-icon { color: var(--green); background: #e8eee5; }
+.dashboard-action b { font-size: 13px; font-weight: 700; line-height: 1.3; }
+.dashboard-action > span:last-child { color: var(--muted); font-size: 11px; line-height: 1.45; margin-top: 4px; }
+.dashboard-section-head .link-more { display: inline-flex; align-items: center; gap: 3px; font-size: 11px; min-height: 24px; }
+.dashboard-section-head .link-more svg { width: 16px; height: 16px; }
+.dashboard-products { display: grid; gap: 10px; }
+.dashboard-product { display: flex; align-items: center; gap: 12px; padding: 10px; border: 1px solid var(--line); border-radius: 20px; background: var(--card); text-decoration: none; }
+.dashboard-product-image { width: 64px; height: 72px; border-radius: 12px; background: #eae1d3; flex-shrink: 0; position: relative; display: grid; place-items: center; color: #a4947e; overflow: hidden; }
+.dashboard-product-image img { position: absolute; inset: 0; object-fit: cover; width: 100%; height: 100%; }
+.dashboard-product-image img[hidden] { display: none; }
+.dashboard-product-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.dashboard-product-copy b { font-size: 13px; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dashboard-category { font-size: 9px; font-weight: 500; color: var(--muted); border: 1px solid #e9e0d3; padding: 2px 6px; border-radius: 5px; }
+.dashboard-price { font-size: 14px; font-weight: 700; color: var(--green); overflow-wrap: anywhere; }
+.dashboard-product > svg { color: #a89b8b; }
+.dashboard-empty { display: grid; justify-items: center; text-align: center; padding: 24px 16px; gap: 10px; }
+.dashboard-empty > svg { color: var(--green); }
+.dashboard-empty p { margin: 0; font-size: 13px; }
+.dashboard-footer { text-align: center; font-size: 11px; margin-top: 24px; }
+.nav { position: fixed; left: 50%; right: auto; width: min(406px, calc(100% - 24px)); transform: translateX(-50%); bottom: calc(12px + env(safe-area-inset-bottom)); padding: 7px 4px; border-radius: 20px; }
+.nav a { flex: 1; min-width: 0; padding: 5px 2px; gap: 3px; font-size: 10px; min-height: 52px; }
+.nav-ic { display: grid; place-items: center; width: 40px; height: 29px; border-radius: 10px; }
+.nav a.on .nav-ic { background: #e85d0429; }
+.nav a.on::after { display: none; }
+@media (hover: hover) {
+  .dashboard-action:hover, .dashboard-stat:hover, .dashboard-product:hover { border-color: #cdbda7; background: #fffcf7; }
+}
+@media (max-width: 360px) {
+  .dashboard { padding-inline: 14px; }
+  .dashboard-hero { padding-inline: 16px; }
+  .dashboard-hero h1 { font-size: 27px; }
+  .dashboard-section-head > span { display: none; }
+  .dashboard-action { padding: 13px; }
+}

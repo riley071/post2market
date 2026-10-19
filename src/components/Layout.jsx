@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import { Home, Package, Sparkles, Images, CircleUserRound } from "lucide-react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { t } from "../lib/i18n.js";
 import { useStore } from "../lib/store.jsx";
 
 const ITEMS = [
-  { to: "/", end: true, icon: "⌂", key: "home" },
-  { to: "/products", icon: "▣", key: "products" },
-  { to: "/design", icon: "✦", key: "design" },
-  { to: "/gallery", icon: "▭", key: "gallery" },
-  { to: "/profile", icon: "●", key: "profile" },
+  { to: "/", end: true, icon: Home, key: "home" },
+  { to: "/products", icon: Package, key: "products" },
+  { to: "/design", icon: Sparkles, key: "design" },
+  { to: "/gallery", icon: Images, key: "gallery" },
+  { to: "/profile", icon: CircleUserRound, key: "profile" },
 ];
 
 export default function Layout() {
@@ -51,7 +52,7 @@ export default function Layout() {
         <div role="status" aria-live="polite">
           {!online ? (
             <div className="offline-bar">
-              Offline · posters save on this device
+              Offline Â· posters save on this device
             </div>
           ) : null}
           {online && backOnline ? (
@@ -68,7 +69,7 @@ export default function Layout() {
               className={({ isActive }) => (isActive ? "on" : "")}
             >
               <span className="nav-ic" aria-hidden="true">
-                {i.icon}
+                <i.icon size={24} strokeWidth={1.75} />
               </span>
               {t(lang, i.key)}
             </NavLink>
